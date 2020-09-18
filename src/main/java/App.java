@@ -10,16 +10,20 @@ import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class App extends Application {
 
-    private static final Map<String, double[]> dataMap = Map.of(
-            "Set 1", new double[]{1, 2, 3, 4, 5},
-            "Set 2", new double[]{0, 1, 2, 3, 4},
-            "Set 3", new double[]{0, 0, 1, 2, 3},
-            "Set 4", new double[]{0, 0, 0, 1, 2},
-            "Set 5", new double[]{0, 0, 0, 0, 1});
+    private static final LinkedHashMap<String, double[]> dataMap = new LinkedHashMap<>();
+
+    static {
+        dataMap.put("Set 3", new double[]{0, 0, 1, 2, 3});
+        dataMap.put("Set 2", new double[]{0, 1, 2, 3, 4});
+        dataMap.put("Set 1", new double[]{1, 2, 3, 4, 5});
+        dataMap.put("Set 5", new double[]{0, 0, 0, 0, 1});
+        dataMap.put("Set 4", new double[]{0, 0, 0, 1, 2});
+    }
 
     private ListView<String> listView;
     private ErrorDataSetRenderer renderer;
